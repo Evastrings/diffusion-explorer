@@ -1,4 +1,5 @@
 import { tokenizePrompt } from '../data/pipeline'
+import { TensorSizePanel } from './TensorSizePanel'
 import './stages.css'
 
 interface ClipStageProps {
@@ -139,6 +140,8 @@ export function ClipStage({ prompt }: ClipStageProps) {
           </div>
         </div>
       </div>
+
+      <TensorSizePanel stage="clip" />
     </div>
   )
 }

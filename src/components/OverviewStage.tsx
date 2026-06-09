@@ -1,3 +1,4 @@
+import { TensorSizePanel } from './TensorSizePanel'
 import './stages.css'
 
 interface OverviewStageProps {
@@ -5,11 +6,11 @@ interface OverviewStageProps {
 }
 
 const STEPS = [
-  { id: 1, title: 'Text Prompt', detail: 'User writes a natural-language description', color: '#7c6cf0' },
-  { id: 2, title: 'CLIP Encoder', detail: 'Tokenizer → token embeddings (77 tokens max)', color: '#4ecdc4' },
-  { id: 3, title: 'Latent Noise', detail: 'Random 64×64×4 tensor in latent space', color: '#8b92a8' },
-  { id: 4, title: 'U-Net + CFG', detail: '~50 denoising steps with cross-attention to text', color: '#f4a261' },
-  { id: 5, title: 'VAE Decoder', detail: 'Latent → 512×512 RGB image (8× upscale)', color: '#ef6461' },
+  { id: 1, title: 'Text Prompt', detail: 'User writes a natural-language description', shape: 'string', color: '#7c6cf0' },
+  { id: 2, title: 'CLIP Encoder', detail: 'Tokenizer → token embeddings (77 tokens max)', shape: '[1, 77, 768]', color: '#4ecdc4' },
+  { id: 3, title: 'Latent Noise', detail: 'Random 64×64×4 tensor in latent space', shape: '[1, 4, 64, 64]', color: '#8b92a8' },
+  { id: 4, title: 'U-Net + CFG', detail: '~50 denoising steps with cross-attention to text', shape: '[1, 4, 64, 64]', color: '#f4a261' },
+  { id: 5, title: 'VAE Decoder', detail: 'Latent → 512×512 RGB image (8× upscale)', shape: '[1, 3, 512, 512]', color: '#ef6461' },
 ]
 
 export function OverviewStage({ prompt }: OverviewStageProps) {
@@ -31,6 +32,7 @@ export function OverviewStage({ prompt }: OverviewStageProps) {
               <div className="flow-node" style={{ '--node-color': step.color } as React.CSSProperties}>
                 <span className="flow-num">{step.id}</span>
                 <strong>{step.title}</strong>
+                <span className="flow-shape mono">{step.shape}</span>
                 <span className="flow-detail">{step.detail}</span>
               </div>
               {i < STEPS.length - 1 && <div className="flow-arrow" aria-hidden="true">→</div>}
@@ -68,6 +70,8 @@ export function OverviewStage({ prompt }: OverviewStageProps) {
           </ul>
         </div>
       </div>
+
+      <TensorSizePanel stage="overview" title="Tensor sizes through the full pipeline" />
 
       <div className="card diffusion-demo">
         <h3>Diffusion intuition</h3>

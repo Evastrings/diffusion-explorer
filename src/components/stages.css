@@ -36,6 +36,15 @@
   font-size: 0.9rem;
 }
 
+.flow-shape {
+  font-size: 0.7rem;
+  color: var(--accent-2);
+  padding: 0.15rem 0.4rem;
+  background: color-mix(in srgb, var(--accent-2) 12%, transparent);
+  border-radius: 4px;
+  width: fit-content;
+}
+
 .flow-detail {
   font-size: 0.75rem;
   color: var(--muted);
@@ -644,4 +653,336 @@
   border-radius: 12px;
   overflow: hidden;
   border: 1px solid var(--border);
+}
+
+/* Tensor size panel */
+.tensor-panel {
+  margin-top: 1.25rem;
+}
+
+.tensor-table-wrap {
+  overflow-x: auto;
+}
+
+.tensor-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.tensor-table th {
+  text-align: left;
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--muted);
+  font-weight: 500;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.tensor-table td {
+  padding: 0.75rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 50%, transparent);
+  vertical-align: top;
+}
+
+.tensor-table tr:last-child td {
+  border-bottom: none;
+}
+
+.tensor-name {
+  display: block;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.tensor-note {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: 0.2rem;
+  line-height: 1.4;
+}
+
+.tensor-shape {
+  color: var(--accent-2);
+  white-space: nowrap;
+}
+
+.tensor-els {
+  color: var(--warm);
+}
+
+.tensor-compact-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.tensor-chip {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.4rem 0.65rem;
+  border-radius: 6px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  font-size: 0.75rem;
+}
+
+.tensor-chip-name {
+  color: var(--muted);
+}
+
+.tensor-chip-shape {
+  color: var(--accent-2);
+}
+
+/* Cross-attention stage */
+.cross-formula .formula-box {
+  font-size: 1.15rem;
+  padding: 1.25rem;
+  text-align: center;
+  background: var(--surface-2);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.formula-legend {
+  margin-top: 0.75rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.q-color { color: #f4a261; }
+.k-color { color: #4ecdc4; }
+.v-color { color: #7c6cf0; }
+
+.qkv-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+@media (max-width: 800px) {
+  .qkv-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.qkv-card {
+  padding: 1rem;
+  border-radius: 10px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--qkv-color, var(--accent));
+}
+
+.qkv-symbol {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--qkv-color) 20%, transparent);
+  color: var(--qkv-color);
+  font-weight: 700;
+  font-size: 1.1rem;
+  font-family: var(--mono);
+  margin-bottom: 0.5rem;
+}
+
+.qkv-source {
+  display: block;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.qkv-shape {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--accent-2);
+  margin: 0.25rem 0 0.5rem;
+}
+
+.qkv-card p {
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.qkv-flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-radius: 10px;
+  background: var(--surface-2);
+  border: 1px dashed var(--border);
+}
+
+.qkv-flow.text-branch {
+  margin-top: 0.75rem;
+  border-style: solid;
+  border-color: color-mix(in srgb, #4ecdc4 30%, var(--border));
+}
+
+.qkv-flow-node {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  font-size: 0.8rem;
+}
+
+.qkv-flow-node span:first-child {
+  font-weight: 500;
+}
+
+.qkv-flow-node .mono {
+  font-size: 0.7rem;
+  color: var(--accent-2);
+}
+
+.latent-node { border-color: #f4a261; }
+.text-node { border-color: #4ecdc4; }
+.scores-node { border-color: var(--warm); }
+.out-node { border-color: var(--accent); }
+
+.qkv-flow-arrow {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.cross-grid {
+  align-items: start;
+}
+
+.heatmap-wrap {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+}
+
+.heatmap-labels-y {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  gap: 1px;
+  flex-shrink: 0;
+  height: 280px;
+}
+
+.heatmap-token-label {
+  flex: 1;
+  min-height: 0;
+  font-size: 0.65rem;
+  font-family: var(--mono);
+  text-align: right;
+  padding-right: 0.35rem;
+  background: none;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.heatmap-token-label.active,
+.heatmap-token-label:hover {
+  opacity: 1;
+  font-weight: 600;
+}
+
+.heatmap {
+  display: grid;
+  gap: 1px;
+  flex: 1;
+  min-width: 200px;
+  height: 280px;
+}
+
+.heatmap-cell {
+  border-radius: 1px;
+  min-width: 0;
+  min-height: 0;
+}
+
+.heatmap-cell.row-active {
+  outline: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.spatial-attn-grid {
+  display: grid;
+  gap: 2px;
+  aspect-ratio: 1;
+  max-width: 280px;
+  margin: 0 auto 1rem;
+  padding: 0.5rem;
+  background: var(--surface-2);
+  border-radius: 10px;
+}
+
+.spatial-attn-cell {
+  aspect-ratio: 1;
+  border-radius: 2px;
+  cursor: crosshair;
+  transition: outline 0.15s;
+}
+
+.cell-breakdown {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+}
+
+.breakdown-title {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+}
+
+.breakdown-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.breakdown-row {
+  display: grid;
+  grid-template-columns: 4.5rem 1fr 2.5rem;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+}
+
+.breakdown-track {
+  height: 8px;
+  border-radius: 4px;
+  background: var(--border);
+  overflow: hidden;
+}
+
+.breakdown-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.2s;
+}
+
+.breakdown-pct {
+  text-align: right;
+  color: var(--muted);
 }

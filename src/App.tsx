@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { DEFAULT_PROMPT, STAGES, type StageId } from './data/pipeline'
 import { OverviewStage } from './components/OverviewStage'
 import { ClipStage } from './components/ClipStage'
+import { CrossAttentionStage } from './components/CrossAttentionStage'
 import { UnetStage } from './components/UnetStage'
 import { VaeStage } from './components/VaeStage'
 import './App.css'
@@ -47,6 +48,7 @@ function App() {
       <main className="main">
         {stage === 'overview' && <OverviewStage prompt={prompt} />}
         {stage === 'clip' && <ClipStage prompt={prompt} />}
+        {stage === 'crossattn' && <CrossAttentionStage prompt={prompt} />}
         {stage === 'unet' && <UnetStage prompt={prompt} />}
         {stage === 'vae' && <VaeStage prompt={prompt} />}
       </main>

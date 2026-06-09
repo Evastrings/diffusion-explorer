@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { TensorSizePanel } from './TensorSizePanel'
 import './stages.css'
 
 interface VaeStageProps {
@@ -141,6 +142,8 @@ export function VaeStage({ prompt }: VaeStageProps) {
           </div>
         </div>
       </div>
+
+      <TensorSizePanel stage="vae" />
     </div>
   )
 }

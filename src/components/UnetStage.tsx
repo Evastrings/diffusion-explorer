@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { DENOISE_STEPS, getAttentionMap, tokenizePrompt } from '../data/pipeline'
+import { TensorSizePanel } from './TensorSizePanel'
 import './stages.css'
 
 interface UnetStageProps {
@@ -204,6 +205,8 @@ export function UnetStage({ prompt }: UnetStageProps) {
           </div>
         </div>
       </div>
+
+      <TensorSizePanel stage="unet" />
     </div>
   )
 }
