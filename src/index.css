@@ -1,0 +1,67 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #0a0b10;
+  --surface: #12141c;
+  --surface-2: #1a1d28;
+  --border: #2a2f42;
+  --text: #e8eaf2;
+  --muted: #8b92a8;
+  --accent: #7c6cf0;
+  --accent-2: #4ecdc4;
+  --warm: #f4a261;
+  --danger: #ef6461;
+  --glow: rgba(124, 108, 240, 0.35);
+  --font: 'Outfit', system-ui, sans-serif;
+  --mono: 'IBM Plex Mono', monospace;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+input,
+textarea {
+  font-family: inherit;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
